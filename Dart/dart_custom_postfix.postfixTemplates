@@ -1,0 +1,52 @@
+# log
+.log : expr.log -> print(expr)
+    ANY -> print($expr$)
+
+#EdgeInsets
+#all
+.eda : value.eda -> EdgeInsets.all(value)
+    ANY -> EdgeInsets.all($expr$)
+# left
+.edol : value.edol -> EdgeInsets.only(left: value)
+    ANY -> EdgeInsets.only(left: $expr$)
+#top
+.edot : value.edot -> EdgeInsets.only(top: value)
+    ANY -> EdgeInsets.only(top: $expr$)
+#right
+.edor : value.edor -> EdgeInsets.only(right: value)
+    ANY -> EdgeInsets.only(right: $expr$)
+#bottom
+.edob : value.edob -> EdgeInsets.only(bottom: value)
+    ANY -> EdgeInsets.only(bottom: $expr$)
+#horizontal
+.edsh : value.edsh -> EdgeInsets.symmetric(horizontal:value)
+    ANY -> EdgeInsets.symmetric(horizontal: $expr$)
+#vertical
+.edsh : value.edsh -> EdgeInsets.symmetric(vertical:value)
+    ANY -> EdgeInsets.symmetric(vertical: $expr$)
+
+#horizontal SizedBox
+.sbh : value.sbh -> const SizedBox(height: value),
+    ANY -> const SizedBox(height: $expr$),
+#vertical SizedBox
+.sbw : value.sbw -> const SizedBox(width: value),
+    ANY -> const SizedBox(width: $expr$),
+
+#error
+.tryc : try {expr} catch (e) {}
+    ANY -> try{\
+    $expr$$nextexpr$\
+    } catch (e){\
+    print(e);\
+    }\
+    $END$
+
+#for
+.fori : iterable.fori -> for(int i = 0; i < Iterable.length; i++) {}
+    ANY -> for(int $INDEX$ = 0; $INDEX$ < $expr$.length; $INDEX$++) {\
+    $END$\
+    }
+.forl : limit.forl -> for(int i = 0; i < limit; i++) {}
+    ANY -> for(int $INDEX$ = 0; $INDEX$ < $expr$; $INDEX$++) {\
+    $END$\
+    }
