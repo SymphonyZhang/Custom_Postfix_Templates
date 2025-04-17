@@ -22,7 +22,7 @@
 .edsh : value.edsh -> EdgeInsets.symmetric(horizontal:value)
     ANY -> EdgeInsets.symmetric(horizontal: $expr$)
 #vertical
-.edsh : value.edsh -> EdgeInsets.symmetric(vertical:value)
+.edsv : value.edsh -> EdgeInsets.symmetric(vertical:value)
     ANY -> EdgeInsets.symmetric(vertical: $expr$)
 
 #horizontal SizedBox
