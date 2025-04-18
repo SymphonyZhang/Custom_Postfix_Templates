@@ -50,3 +50,7 @@
     ANY -> for(int $INDEX$ = 0; $INDEX$ < $expr$; $INDEX$++) {\
     $END$\
     }
+
+# text
+.tt : expr.tt -> Text(expr)
+    ANY -> Text($expr$)
